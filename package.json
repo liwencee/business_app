@@ -1,0 +1,36 @@
+{
+
+    "name": "business_app",
+
+    "version": "1.0.0",
+
+    "description": "A simple Node-js application",
+
+    "main": "index.js",
+
+    "scripts": {
+
+        "start": "node index.js"
+
+    },
+
+    "author": "olalekan",
+
+    "license": "ISC",
+
+    "repository": {
+
+        "type": "git",
+
+        "url": "lehqandiya@gmail.com"
+
+    },
+
+    "keywords": [
+
+        "web"
+
+    ]
+
+}
+
