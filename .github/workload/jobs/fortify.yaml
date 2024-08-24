@@ -1,0 +1,33 @@
+name: Fortify AST Scan
+
+# Customize trigger events based on your DevSecOps process and/or policy
+on:
+  push:
+    branches: [$default-branch, $protected-branches]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [$default-branch]
+  schedule:
+  - cron: $cron-weekly
+  workflow_dispatch:
+
+jobs:
+  Fortify-AST-Scan:
+    # Use the appropriate runner for building your source code. Ensure dev tools required to build your code are present and configured appropriately (MSBuild, Python, etc).
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+    # Check out source code
+    - name: Check Out Source Code
+      uses: actions/checkout@v4
+
+    # Java is required to run the various Fortify utilities. Ensuring proper version is installed on the runner.
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: 17
+        distribution: 'temurin'
