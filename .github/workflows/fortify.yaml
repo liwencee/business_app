@@ -7,10 +7,7 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [$default-branch]
-  schedule:
-  - cron: $cron-weekly
-  workflow_dispatch:
-
+ 
 jobs:
   Fortify-AST-Scan:
     # Use the appropriate runner for building your source code. Ensure dev tools required to build your code are present and configured appropriately (MSBuild, Python, etc).
@@ -26,8 +23,8 @@ jobs:
       uses: actions/checkout@v4
 
     # Java is required to run the various Fortify utilities. Ensuring proper version is installed on the runner.
-    - name: Setup Java
-      uses: actions/setup-java@v4
+    - name: Setup ubuntu
+      uses: actions/setup-ubuntu
       with:
-        java-version: 17
-        distribution: 'temurin'
+        node-version: 18
+        distribution: 'alpine'
