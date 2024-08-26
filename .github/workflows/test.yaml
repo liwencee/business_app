@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: nginx-latest
+    runs-on: nginx-alpine 18
 
     steps:
     - uses: actions/checkout@v2
